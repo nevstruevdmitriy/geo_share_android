@@ -8,15 +8,17 @@
 
     <ToggleButton
         android:id="@+id/toggleButton"
-        android:layout_width="166dp"
-        android:layout_height="170dp"
+        android:layout_width="252dp"
+        android:layout_height="263dp"
         android:background="#F44336"
         android:checked="true"
         android:onClick="clickSharing"
         android:rotationX="0"
         android:text="ToggleButton"
-        android:textOff="Start share"
-        android:textOn="Sharing"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="280dp" />
+        android:textOff="Sharing..."
+        android:textOn="Tup to start sharing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
