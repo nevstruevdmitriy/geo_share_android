@@ -13,9 +13,9 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public class GeoRequestBuilder {
-    static DecimalFormatSymbols dfs = new DecimalFormatSymbols();
-    static DecimalFormat df = new DecimalFormat();
-
+    private static final DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+    private static final DecimalFormat df = new DecimalFormat();
+    private static final String TAG = "GeoRequestBuilder";
 
     public static StringRequest request(String id, Location location) {
         // fixme
@@ -23,20 +23,18 @@ public class GeoRequestBuilder {
         df.setDecimalFormatSymbols(dfs);
         df.setMinimumFractionDigits(6);
 
-        Log.i("GG", String.format("%f", location.getLatitude()));
         String url = String.format(Locale.getDefault(), "https://geo-shared.herokuapp.com/new_point?userId=%s&latitude=%s&longitude=%s", id, df.format(location.getLatitude()), df.format(location.getLongitude()));
 
         return new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        Log.i("tag", "onResponse: " + response);
+                        Log.i(TAG, "onResponse: " + response);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i("tag", "onResponse: did not work!");
+                Log.i(TAG, "onResponse: did not work!");
             }
         });
     }
