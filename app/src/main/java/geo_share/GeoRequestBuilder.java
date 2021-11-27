@@ -34,7 +34,7 @@ public class GeoRequestBuilder {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i(TAG, "onResponse: did not work!");
+                Log.i(TAG, "onResponse: did not work!" + error.getMessage());
             }
         });
     }

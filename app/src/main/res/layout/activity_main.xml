@@ -6,19 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="252dp"
-        android:layout_height="263dp"
-        android:background="#F44336"
-        android:checked="true"
-        android:onClick="clickSharing"
-        android:rotationX="0"
-        android:text="ToggleButton"
-        android:textOff="Sharing..."
-        android:textOn="Tup to start sharing"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical">
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/map"
+            android:layout_weight = "1"
+            android:layout_height = "wrap_content"
+            android:layout_width="fill_parent" />
+
+        <Button
+            android:layout_weight = "0"
+            android:layout_height = "wrap_content"
+            android:id="@+id/Button"
+            android:layout_width="fill_parent"
+            android:background="@drawable/button_background_ok"
+            android:onClick="clickSharing"
+            android:text="Tap to sharing"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
